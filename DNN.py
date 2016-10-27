@@ -6,9 +6,11 @@ from __future__ import print_function
 import collections
 import tensorflow as tf
 import numpy as np
+import os
+import new_dnn
 
 # Data sets
-DATAFILE = "10000_long.csv"
+DATAFILE = "10000_normal_noAlu.csv"
 NUM_BATCH = 10
 
 # Load datasets.
@@ -37,12 +39,13 @@ test_set = Dataset(data = np.asarray([data_set.data[i] for i in permuation[n_tra
 feature_columns = [tf.contrib.layers.real_valued_column("", dimension=n_features)]
 
 # Build 3 layer DNN with 10, 20, 10 units respectively.
-classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
-                                            hidden_units=[10, 10],
+classifier = new_dnn.DNNClassifier(feature_columns=feature_columns,
+                                            hidden_units=[10],
                                             n_classes=2,
-                                            model_dir="/home/thinkingbear/tf/DNN_long_10_10_seed_23")
+                                            model_dir= os.path.split(os.path.realpath(__file__))[0] + "/tmp/DNN_normal_noAlu_10_seed_23")
 
 for T in range(1000):
+  print('Step: {}----------------------'.format(str(T * 200)));
   # Fit model.
   classifier.fit(x=training_set.data,
                  y=training_set.target,
