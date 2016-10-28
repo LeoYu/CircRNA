@@ -1,0 +1,8 @@
+g++ extract_all.cpp -o extract_all -O2
+g++ extract_alu.cpp -o extract_alu -O2
+g++ extract_long.cpp -o extract_long -O2
+
+g++ normal_all.cpp -o normal_all -O2
+g++ normal_alu.cpp -o normal_alu -O2
+g++ normal_long.cpp -o normal_long -O2
+

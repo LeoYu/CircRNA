@@ -1,0 +1,7 @@
+./extract_all
+./extract_alu
+./extract_long
+
+./normal_all
+./normal_alu
+./normal_long
