@@ -64,7 +64,7 @@ classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
 P = np.float64(len([i for i in test_set.target if i == 1]))
 N = np.float64(n_test - P)
 
-for T in range(1):
+for T in range(1000):
   log = open(logdir + 'log', 'a')
   log.write('Step: {}----------------------\n'.format(str(T * 200)))
   print('Step: {}----------------------'.format(str(T * 200)));
